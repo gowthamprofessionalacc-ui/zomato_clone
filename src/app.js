@@ -13,7 +13,17 @@ const walletRoutes = require('./modules/wallet/wallet.routes');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://127.0.0.1:5173',
+    'http://127.0.0.1:5174',
+    'https://zomato-user-app.vercel.app',
+    /\.vercel\.app$/
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Health check
