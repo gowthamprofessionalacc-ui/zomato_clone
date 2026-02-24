@@ -1,0 +1,52 @@
+.food-card {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.food-info {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.veg-badge {
+  font-size: 12px;
+}
+
+.food-details h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #1c1c1c;
+}
+
+.food-details .hotel-name {
+  margin: 3px 0;
+  color: #888;
+  font-size: 13px;
+}
+
+.food-details .price {
+  margin: 5px 0 0;
+  color: #1c1c1c;
+  font-weight: bold;
+}
+
+.add-btn {
+  padding: 8px 20px;
+  background: white;
+  color: #e23744;
+  border: 1px solid #e23744;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-btn:hover {
+  background: #e23744;
+  color: white;
+}

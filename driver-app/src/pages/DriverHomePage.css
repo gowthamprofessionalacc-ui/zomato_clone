@@ -1,0 +1,153 @@
+.driver-home {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+.connection-status {
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 15px;
+  background: white;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.driver-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.driver-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.driver-avatar {
+  width: 50px;
+  height: 50px;
+  background: #1a1a2e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.driver-info h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.driver-info p {
+  margin: 2px 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  background: transparent;
+  color: #e23744;
+  border: 1px solid #e23744;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.status-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.status-text {
+  margin: 15px 0 0;
+  font-size: 16px;
+  color: #666;
+}
+
+.waiting-card {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 40px 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.waiting-icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.waiting-card h3 {
+  margin: 0 0 10px;
+}
+
+.waiting-card p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.stats-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.stats-card h3 {
+  margin: 0 0 15px;
+  font-size: 16px;
+  color: #666;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a1a2e;
+}
+
+.stat-label {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-buttons button {
+  flex: 1;
+  padding: 15px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+}

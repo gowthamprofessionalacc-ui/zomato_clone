@@ -1,0 +1,68 @@
+.hotel-page {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 80px;
+}
+
+.hotel-header {
+  background: linear-gradient(135deg, #e23744 0%, #ff6b6b 100%);
+  color: white;
+  padding: 20px;
+  padding-top: 80px;
+}
+
+.back-btn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.hotel-info h1 {
+  margin: 0 0 5px 0;
+  font-size: 24px;
+}
+
+.hotel-info p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.hotel-foods {
+  padding: 20px;
+}
+
+.hotel-foods h2 {
+  margin: 0 0 20px 0;
+  color: #1c1c1c;
+}
+
+.foods-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cart-float {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e23744;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 4px 20px rgba(226, 55, 68, 0.4);
+  cursor: pointer;
+  z-index: 100;
+}
+
+.loading {
+  text-align: center;
+  padding: 100px 20px;
+  color: #666;
+}

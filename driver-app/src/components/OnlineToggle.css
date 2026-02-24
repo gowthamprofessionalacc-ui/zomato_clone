@@ -1,0 +1,51 @@
+.online-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.online-toggle.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.toggle-track {
+  width: 80px;
+  height: 44px;
+  background: #ddd;
+  border-radius: 22px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.online-toggle.online .toggle-track {
+  background: #4CAF50;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 36px;
+  height: 36px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.online-toggle.online .toggle-thumb {
+  transform: translateX(36px);
+}
+
+.toggle-text {
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+}
+
+.online-toggle.online .toggle-text {
+  color: #4CAF50;
+}
