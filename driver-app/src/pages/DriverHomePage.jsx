@@ -18,12 +18,16 @@ const DriverHomePage = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Get location
+    // Get location with fallback
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => setLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
-        () => setLocation({ lat: 9.9250, lng: 78.1200 })
+        () => setLocation({ lat: 9.9250, lng: 78.1200 }),
+        { timeout: 5000 }
       );
+    } else {
+      // No geolocation support - use fallback
+      setLocation({ lat: 9.9250, lng: 78.1200 });
     }
     
     fetchStats();
@@ -72,6 +76,8 @@ const DriverHomePage = () => {
   };
 
   const handleToggleOnline = async (online) => {
+    console.log('Toggle called, location:', location, 'online:', online);
+    
     if (!location) {
       alert('Please enable location access');
       return;
@@ -80,12 +86,16 @@ const DriverHomePage = () => {
     setLoading(true);
     try {
       if (online) {
+        console.log('Calling goOnline API...');
         await goOnline(location.lat, location.lng);
       } else {
+        console.log('Calling goOffline API...');
         await goOffline();
       }
+      console.log('API call successful');
       setIsOnline(online);
     } catch (err) {
+      console.error('API call failed:', err);
       alert(err.response?.data?.error || 'Failed to update status');
     }
     setLoading(false);

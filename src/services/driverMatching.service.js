@@ -16,7 +16,27 @@ const cacheDriversForOrder = (orderId, drivers) => {
 };
 
 const sendToNextDriver = async (orderId, sortedDrivers, hotelLat, hotelLng) => {
-  const currentIndex = orderDriverIndex[orderId] || 0;
+  let currentIndex = orderDriverIndex[orderId] || 0;
+
+  // Find next driver who is still online and available
+  while (currentIndex < sortedDrivers.length) {
+    const driver = sortedDrivers[currentIndex];
+    
+    // Check if driver is still online and available
+    const { data: driverStatus } = await supabase
+      .from('users')
+      .select('is_online, is_available')
+      .eq('id', driver.id)
+      .single();
+    
+    if (driverStatus && driverStatus.is_online && driverStatus.is_available) {
+      break; // Found valid driver
+    }
+    
+    console.log(`Driver ${driver.name} no longer online/available, skipping`);
+    currentIndex++;
+    orderDriverIndex[orderId] = currentIndex;
+  }
 
   if (currentIndex >= sortedDrivers.length) {
     console.log(`All drivers exhausted for order ${orderId}`);
