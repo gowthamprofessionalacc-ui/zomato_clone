@@ -23,13 +23,20 @@ const sendToNextDriver = async (orderId, sortedDrivers, hotelLat, hotelLng) => {
     const driver = sortedDrivers[currentIndex];
     
     // Check if driver is still online and available
-    const { data: driverStatus } = await supabase
+    const { data: driverStatus, error: statusError } = await supabase
       .from('users')
       .select('is_online, is_available')
       .eq('id', driver.id)
       .single();
     
+    console.log(`Checking driver ${driver.name} (${driver.id}): is_online=${driverStatus?.is_online}, is_available=${driverStatus?.is_available}`);
+    
+    if (statusError) {
+      console.log(`Error fetching driver status: ${statusError.message}`);
+    }
+    
     if (driverStatus && driverStatus.is_online && driverStatus.is_available) {
+      console.log(`Driver ${driver.name} is online and available, sending order`);
       break; // Found valid driver
     }
     
