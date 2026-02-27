@@ -4,6 +4,8 @@ const { verifyOTP } = require('../../services/otp.service');
 const { getIO } = require('../../config/socket');
 
 const goOnline = async (driverId, lat, lng) => {
+  console.log(`goOnline called for driver: ${driverId}, lat: ${lat}, lng: ${lng}`);
+  
   const { data, error } = await supabase
     .from('users')
     .update({
@@ -16,11 +18,15 @@ const goOnline = async (driverId, lat, lng) => {
     .select()
     .single();
 
+  console.log(`goOnline result - data:`, data, `error:`, error);
+
   if (error) throw error;
   return data;
 };
 
 const goOffline = async (driverId) => {
+  console.log(`goOffline called for driver: ${driverId}`);
+  
   // Check if driver has active order
   const { data: activeOrder } = await supabase
     .from('orders')
@@ -39,6 +45,8 @@ const goOffline = async (driverId) => {
     .eq('id', driverId)
     .select()
     .single();
+
+  console.log(`goOffline result - data:`, data, `error:`, error);
 
   if (error) throw error;
   return data;
